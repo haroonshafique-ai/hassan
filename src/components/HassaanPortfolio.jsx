@@ -1348,7 +1348,7 @@ export default function Portfolio() {
           <div className="hero-photo-wrap">
             <img
               className="hero-photo"
-              src="/pic%201.jpg"
+              src="/pic%1.jpg"
               alt="Hassaan Bashir"
             />
             <div className="hero-photo-badge">AHPC Registered</div>
