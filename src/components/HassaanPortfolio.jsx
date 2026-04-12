@@ -194,6 +194,7 @@ const style = `
     letter-spacing: 0.8px; text-transform: uppercase;
     padding: 8px 16px; border-radius: 100px;
     margin-bottom: 24px;
+    animation: badge-float 3.6s ease-in-out infinite;
   }
   .hero-badge .dot {
     width: 7px; height: 7px; border-radius: 50%;
@@ -203,6 +204,10 @@ const style = `
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  @keyframes badge-float {
+    0%, 100% { transform: translateY(0); box-shadow: 0 6px 16px rgba(17, 184, 164, 0.15); }
+    50% { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(17, 184, 164, 0.22); }
   }
   .hero h1 {
     font-family: 'DM Serif Display', serif;
@@ -220,6 +225,7 @@ const style = `
     margin-bottom: 34px;
   }
   .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-actions a { text-decoration: none; }
   .btn-primary {
     background: var(--accent);
     color: white;
@@ -737,6 +743,16 @@ const style = `
   }
   .contact-item-text { color: var(--text-dark); font-size: 14px; font-weight: 500; }
   .contact-item-sub { color: var(--text-muted); font-size: 12px; margin-top: 2px; }
+  .hours-list { margin-top: 8px; display: grid; gap: 6px; }
+  .hours-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: #ffffff;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px; color: var(--text-muted);
+  }
+  .hours-day { font-weight: 600; color: var(--text-dark); }
 
   .contact-right {
     background: linear-gradient(155deg, #f5f9ff 18%, #ffffff 100%);
@@ -781,6 +797,8 @@ const style = `
     transition: opacity 0.2s;
   }
   .form-submit:hover { opacity: 0.88; }
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+  .form-error { margin: 10px 0 6px; color: #d94b4b; font-size: 12px; }
 
   /* FOOTER */
   footer {
@@ -907,6 +925,7 @@ const style = `
     color: #246bff;
     animation: loader-bob 1.1s ease-in-out infinite;
     filter: drop-shadow(0 8px 14px rgba(36,107,255,0.2));
+    object-fit: contain;
   }
   .loader-icon:nth-child(2) { animation-delay: 0.16s; }
   .loader-icon:nth-child(3) { animation-delay: 0.32s; }
@@ -1185,6 +1204,56 @@ export default function Portfolio() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [formName, setFormName] = useState("");
+  const [formEmail, setFormEmail] = useState("");
+  const [formMessage, setFormMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState("");
+
+  const emailServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const emailTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const emailPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+  const handleSendMessage = async () => {
+    if (sending) return;
+    setSendError("");
+
+    if (!formName.trim() || !formEmail.trim() || !formMessage.trim()) {
+      setSendError("Please fill in all fields before sending.");
+      return;
+    }
+    if (!emailServiceId || !emailTemplateId || !emailPublicKey) {
+      setSendError("Email service is not configured yet.");
+      return;
+    }
+    setSending(true);
+    try {
+      const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service_id: emailServiceId,
+          template_id: emailTemplateId,
+          user_id: emailPublicKey,
+          template_params: {
+            from_name: formName,
+            from_email: formEmail,
+            reply_to: formEmail,
+            message: formMessage
+          }
+        })
+      });
+      if (!res.ok) throw new Error("Slack request failed");
+      setSent(true);
+      setFormName("");
+      setFormEmail("");
+      setFormMessage("");
+    } catch (err) {
+      setSendError("Message failed to send. Please try again.");
+    } finally {
+      setSending(false);
+    }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1700);
@@ -1196,22 +1265,24 @@ export default function Portfolio() {
       <style>{style}</style>
       <div className={`site-loader ${loading ? "" : "hide"}`}>
         <div className="loader-icons" aria-label="Loading website">
-          <svg className="loader-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="3.5" y="3.5" width="17" height="17" rx="3" stroke="currentColor" strokeWidth="2"/>
-            <circle cx="8.5" cy="8.5" r="2.2" stroke="currentColor" strokeWidth="2"/>
-            <circle cx="15.5" cy="15.5" r="2.2" stroke="currentColor" strokeWidth="2"/>
-            <path d="M10.2 10.2l3.6 3.6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-          </svg>
-          <svg className="loader-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M7 4v8a5 5 0 0 0 10 0V4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            <rect x="5" y="3" width="4" height="5" rx="1.2" fill="currentColor"/>
-            <rect x="15" y="3" width="4" height="5" rx="1.2" fill="currentColor"/>
-          </svg>
-          <svg className="loader-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="6.5" stroke="currentColor" strokeWidth="2"/>
-            <circle cx="12" cy="12" r="2.2" stroke="currentColor" strokeWidth="2"/>
-            <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-          </svg>
+          <img
+            className="loader-icon"
+            src="https://cdn-icons-png.flaticon.com/512/10476/10476316.png"
+            alt="Radiation icon"
+            loading="eager"
+          />
+          <img
+            className="loader-icon"
+            src="https://cdn-icons-png.flaticon.com/512/1988/1988547.png"
+            alt="Medical symbol icon"
+            loading="eager"
+          />
+          <img
+            className="loader-icon"
+            src="https://cdn-icons-png.flaticon.com/512/7077/7077974.png"
+            alt="MRI icon"
+            loading="eager"
+          />
         </div>
       </div>
 
@@ -1277,8 +1348,8 @@ export default function Portfolio() {
           <div className="hero-photo-wrap">
             <img
               className="hero-photo"
-              src="https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=1200&q=80"
-              alt="Clinical imaging professional"
+              src="/pic%201.jpg"
+              alt="Hassaan Bashir"
             />
             <div className="hero-photo-badge">AHPC Registered</div>
           </div>
@@ -1335,9 +1406,9 @@ export default function Portfolio() {
             <FadeIn delay={90}>
               <div className="about-card">
                 <div className="section-label">About</div>
-                <div className="section-title">Beyond Imaging, Into Accuracy:</div>
+                <div className="section-title">Beyond Imaging — Into Accuracy:</div>
                 <p>
-                  I am a dedicated Medical Imaging Technologist focused on capturing more than just images -- I focus on
+                  I am a dedicated Medical Imaging Technologist focused on capturing more than just images. I focus on
                   accuracy, safety, and patient trust. With experience in CT, MRI, X-ray, OPG, and CBCT, I ensure every
                   scan meets the highest standards of diagnostic quality.
                 </p>
@@ -1348,7 +1419,7 @@ export default function Portfolio() {
                   <div className="about-point">High-Volume Patient Handling</div>
                   <div className="about-point">Emergency Department Experience</div>
                   <div className="about-point">Efficient Workflow Management</div>
-                  <div className="about-point">Compassionate Patient Communication</div>
+                  <div className="about-point">Good Patient Communication</div>
                 </div>
               </div>
             </FadeIn>
@@ -1496,9 +1567,20 @@ export default function Portfolio() {
                 <div className="contact-item-icon">⏰</div>
                 <div>
                   <div className="contact-item-text">Working Hours</div>
-                  <div className="contact-item-sub">Monday to Friday: 9:00 AM to 11:00 PM</div>
-                  <div className="contact-item-sub">Saturday: 9:00 AM to 4:00 PM</div>
-                  <div className="contact-item-sub">Sunday: Off</div>
+                  <div className="hours-list">
+                    <div className="hours-row">
+                      <span className="hours-day">Mon - Fri</span>
+                      <span className="hours-time">9:00 AM - 11:00 PM</span>
+                    </div>
+                    <div className="hours-row">
+                      <span className="hours-day">Saturday</span>
+                      <span className="hours-time">9:00 AM - 4:00 PM</span>
+                    </div>
+                    <div className="hours-row">
+                      <span className="hours-day">Sunday</span>
+                      <span className="hours-time">Off</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <a href="mailto:hassaanbashir.mit@gmail.com" className="contact-item">
@@ -1532,10 +1614,32 @@ export default function Portfolio() {
               </div>
             ) : (
               <>
-                <div className="form-field"><input placeholder="Your Name" /></div>
-                <div className="form-field"><input placeholder="Your Email" /></div>
-                <div className="form-field"><textarea rows={4} placeholder="Your Message" /></div>
-                <button className="form-submit" onClick={() => setSent(true)}>Send Message →</button>
+                <div className="form-field">
+                  <input
+                    placeholder="Your Name"
+                    value={formName}
+                    onChange={(e) => setFormName(e.target.value)}
+                  />
+                </div>
+                <div className="form-field">
+                  <input
+                    placeholder="Your Email"
+                    value={formEmail}
+                    onChange={(e) => setFormEmail(e.target.value)}
+                  />
+                </div>
+                <div className="form-field">
+                  <textarea
+                    rows={4}
+                    placeholder="Your Message"
+                    value={formMessage}
+                    onChange={(e) => setFormMessage(e.target.value)}
+                  />
+                </div>
+                {sendError && <div className="form-error">{sendError}</div>}
+                <button className="form-submit" onClick={handleSendMessage} disabled={sending}>
+                  {sending ? "Sending..." : "Send Message →"}
+                </button>
               </>
             )}
           </div>
