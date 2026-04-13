@@ -1398,7 +1398,7 @@ export default function Portfolio() {
             <FadeIn>
               <div className="about-media">
                 <img
-                  src="\about.jpeg"
+                  src="/about.jpeg"
                   alt="Radiology setup"
                 />
               </div>
