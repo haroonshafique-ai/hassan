@@ -1398,7 +1398,7 @@ export default function Portfolio() {
             <FadeIn>
               <div className="about-media">
                 <img
-                  src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80"
+                  src="\about.jpeg"
                   alt="Radiology setup"
                 />
               </div>
