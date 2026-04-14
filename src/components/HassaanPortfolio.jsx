@@ -1348,7 +1348,7 @@ export default function Portfolio() {
           <div className="hero-photo-wrap">
             <img
               className="hero-photo"
-              src="/pic1.jpg"
+              src="/pic1.webp"
               alt="Hassaan Bashir"
             />
             <div className="hero-photo-badge">AHPC Registered</div>
@@ -1398,7 +1398,7 @@ export default function Portfolio() {
             <FadeIn>
               <div className="about-media">
                 <img
-                  src="/about.jpeg"
+                  src="/about.webp"
                   alt="Radiology setup"
                 />
               </div>
