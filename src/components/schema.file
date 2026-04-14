@@ -1,0 +1,79 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hassaan Bashir",
+  "alternateName": "Hassaan Bashir MIT",
+  "jobTitle": "AHPC Certified Medical Imaging Technologist",
+  "description": "AHPC Registered Medical Imaging Technologist specializing in CT, MRI, X-Ray, OPG, and CBCT imaging. Experienced in high-volume hospital settings with strong expertise in diagnostic accuracy, radiation safety, and patient-centered care in Lahore, Pakistan.",
+  "url": "https://hassaanbashir.tech",
+  "image": "https://hassaanbashir.tech/pic1.webp",
+  "sameAs": [
+    "mailto:hassaanbashir.mit@gmail.com",
+    "tel:+923195048665",
+    "https://hassaanbashir.tech"
+  ],
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "The Superior University",
+    "url": "https://superior.edu.pk"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "AHPC Certified Imaging Technologist",
+      "credentialCategory": "Professional Certification",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Allied Health Professionals Council (AHPC)"
+      }
+    }
+  ],
+  "knowsAbout": [
+    "CT Scanning",
+    "MRI Imaging",
+    "X-Ray Imaging",
+    "OPG Imaging",
+    "CBCT Imaging",
+    "Radiation Safety Protocols",
+    "Diagnostic Radiology",
+    "Patient Care in Medical Imaging"
+  ],
+  "workExperience": [
+    {
+      "@type": "JobPosting",
+      "title": "Imaging Technologist",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "Pakistan Kidney & Liver Institute"
+      },
+      "datePosted": "2026-01-01",
+      "employmentType": "FullTime"
+    },
+    {
+      "@type": "JobPosting",
+      "title": "Radiologic Technologist",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "Jinnah MRI & Body Scan"
+      },
+      "datePosted": "2026-02-01",
+      "employmentType": "FullTime"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lahore",
+    "addressRegion": "Punjab",
+    "addressCountry": "PK"
+  },
+  "telephone": "+923195048665",
+  "email": "hassaanbashir.mit@gmail.com",
+  "nationality": "Pakistani",
+  "gender": "Male",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hassaanbashir.tech"
+  }
+}
+</script>

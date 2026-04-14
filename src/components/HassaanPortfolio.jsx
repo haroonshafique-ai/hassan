@@ -1287,7 +1287,7 @@ export default function Portfolio() {
       </div>
 
       {/* NAV */}
-      <nav>
+      <nav aria-label="Primary">
         <div className="nav-inner">
           <div className="nav-logo">
             <span>Hassaan <span className="nav-logo-accent">Bashir</span></span>
@@ -1321,16 +1321,19 @@ export default function Portfolio() {
         </div>
       </nav>
 
+      <main id="top">
+
       {/* HERO */}
       <div className="hero">
         <div className="hero-copy">
           <div className="hero-badge">
             <span className="dot"></span>
-            Available for Opportunities
+            Available for Clinical Opportunities
           </div>
-          <h1>Medical <em>Imaging</em> Technologist</h1>
+          <h1>Hassaan Bashir - Medical <em>Imaging</em> Technologist</h1>
           <p className="hero-desc">
-            AHPC Certified specialist in X-ray, CT, MRI, OPG & CBCT imaging — committed to precision diagnostics and exceptional patient care across clinical environments.
+            AHPC certified specialist in X-ray, CT, MRI, OPG, and CBCT imaging in Lahore, focused on precise diagnostics,
+            radiation safety, and patient-centered care across clinical environments.
           </p>
           <div className="hero-actions">
             <button className="btn-primary" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
@@ -1340,7 +1343,7 @@ export default function Portfolio() {
               View Experience
             </button>
             <a href="/Hassaan-MIT-resume.pdf" download className="btn-outline">
-              ⬇ Download Resume
+              Download Resume
             </a>
           </div>
         </div>
@@ -1349,12 +1352,16 @@ export default function Portfolio() {
             <img
               className="hero-photo"
               src="/pic1.webp"
-              alt="Hassaan Bashir"
+              alt="Hassaan Bashir - Medical Imaging Technologist"
+              width="1376"
+              height="768"
+              decoding="async"
+              fetchpriority="high"
             />
             <div className="hero-photo-badge">AHPC Registered</div>
           </div>
           <h3>Hassaan Bashir</h3>
-          <p>Imaging Technologist · AHPC Certified</p>
+          <p>Imaging Technologist - AHPC Certified</p>
           <div className="stat-row">
             <div className="stat-box">
               <div className="stat-num">150+</div>
@@ -1373,7 +1380,7 @@ export default function Portfolio() {
               <div className="stat-label">Years Active</div>
             </div>
           </div>
-          <div className="cert-chip">✅ AHPC Registered Technologist</div>
+          <div className="cert-chip">AHPC Registered Technologist</div>
         </div>
       </div>
 
@@ -1399,14 +1406,17 @@ export default function Portfolio() {
               <div className="about-media">
                 <img
                   src="/about.webp"
-                  alt="Radiology setup"
+                  alt="Diagnostic radiology setup in Lahore"
+                  loading="lazy"
+                  width="1384"
+                  height="768"
                 />
               </div>
             </FadeIn>
             <FadeIn delay={90}>
               <div className="about-card">
                 <div className="section-label">About</div>
-                <div className="section-title">Beyond Imaging — Into Accuracy:</div>
+                <h2 className="section-title">Beyond Imaging - Into Accuracy</h2>
                 <p>
                   I am a dedicated Medical Imaging Technologist focused on capturing more than just images. I focus on
                   accuracy, safety, and patient trust. With experience in CT, MRI, X-ray, OPG, and CBCT, I ensure every
@@ -1434,15 +1444,13 @@ export default function Portfolio() {
             <div className="section-label">Resume</div>
             <div className="resume-card">
               <div>
-                <div className="resume-title">Download My PDF Resume</div>
+                <h2 className="resume-title">Download My PDF Resume</h2>
                 <p className="resume-sub">
                   Full professional profile including education, hospital experience, clinical rotations,
                   certifications, and core imaging competencies.
                 </p>
               </div>
-              <a href="/Hassaan-MIT-resume.pdf" download className="resume-btn">
-                ⬇ Download Resume
-              </a>
+              <a href="/Hassaan-MIT-resume.pdf" download className="resume-btn">Download Resume</a>
             </div>
           </FadeIn>
         </div>
@@ -1453,7 +1461,7 @@ export default function Portfolio() {
         <div className="section-inner">
           <FadeIn>
             <div className="section-label">Education & Certification</div>
-            <div className="section-title">Academic and Professional Credentials</div>
+            <h2 className="section-title">Academic and Professional Credentials</h2>
             <p className="section-sub">A combined view of university education and professional registration credentials.</p>
           </FadeIn>
           <div className="credentials-grid">
@@ -1480,7 +1488,7 @@ export default function Portfolio() {
         <div className="section-inner">
           <FadeIn>
             <div className="section-label">Expertise</div>
-            <div className="section-title">Imaging Modalities</div>
+            <h2 className="section-title">Imaging Modalities</h2>
             <p className="section-sub">Proficient in a comprehensive range of diagnostic imaging techniques used across clinical and hospital settings.</p>
           </FadeIn>
           <div className="expertise-grid">
@@ -1509,7 +1517,7 @@ export default function Portfolio() {
         <div className="section-inner">
           <FadeIn>
             <div className="section-label">Career</div>
-            <div className="section-title">Clinical Experience</div>
+            <h2 className="section-title">Clinical Experience</h2>
             <p className="section-sub">Hands-on imaging practice across leading hospitals and diagnostic centres in Lahore.</p>
           </FadeIn>
           <div className="timeline">
@@ -1539,7 +1547,7 @@ export default function Portfolio() {
         <div className="section-inner">
           <FadeIn>
             <div className="section-label">Capabilities</div>
-            <div className="section-title">Skills & Competencies</div>
+            <h2 className="section-title">Skills & Competencies</h2>
             <p className="section-sub">A blend of clinical, technical, and interpersonal skills developed through education and hands-on practice.</p>
           </FadeIn>
           <div className="skills-grid">
@@ -1560,7 +1568,7 @@ export default function Portfolio() {
         <div className="contact-inner">
           <div>
             <div className="section-label">Contact</div>
-            <div className="section-title">Let's Connect</div>
+            <h2 className="section-title">Let's Connect</h2>
             <p className="section-sub">Open to clinical opportunities, collaborations, and professional inquiries.</p>
             <div className="contact-items">
               <div className="contact-item">
@@ -1645,6 +1653,8 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      </main>
 
       {/* FOOTER */}
       <footer>
