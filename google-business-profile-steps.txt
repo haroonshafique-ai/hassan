@@ -1,0 +1,28 @@
+Google Business Profile Setup (Hassaan Bashir)
+
+What you need (prepare first)
+- Business / profile name (example: "Hassaan Bashir - Medical Imaging Technologist")
+- Category (example: r"Medical diagnostic imaging cente" or "Medical clinic")
+- Service area: Lahore, Punjab, Pakistan
+- Phone number
+- Website: https://hassaanbashir.tech
+- Short business description (750 chars max)
+- Profile photo + cover photo
+- Working hours
+
+Step-by-step
+1) Go to Google Business Profile and sign in with your Google account.
+2) Click "Manage now" and enter your profile name.
+3) Choose the best category.
+4) Choose whether customers can visit a location:
+   - If you do not see clients at a fixed address, choose "No" and set service area.
+5) Add your phone and website.
+6) Verify your profile (usually by phone, email, or video).
+7) Add hours, services, and a short description.
+8) Upload your logo, profile photo, and cover image.
+9) Publish your profile and keep it updated.
+
+Tips to help Knowledge Panel
+- Use the same name, title, and photo as your website and LinkedIn.
+- Add services and make a short, clear description.
+- Keep contact info consistent everywhere.
