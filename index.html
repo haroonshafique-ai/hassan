@@ -49,142 +49,131 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Hassaan Bashir",
-        "alternateName": "Hassaan Bashir MIT",
-        "jobTitle": "AHPC Certified Medical Imaging Technologist",
-        "description": "AHPC Registered Medical Imaging Technologist specializing in CT, MRI, X-Ray, OPG, and CBCT imaging. Experienced in high-volume hospital settings with strong expertise in diagnostic accuracy, radiation safety, and patient-centered care in Lahore, Pakistan.",
-        "url": "https://hassaanbashir.tech",
-        "image": "https://hassaanbashir.tech/pic1.webp",
-        "sameAs": [
-          "mailto:hassaanbashir.mit@gmail.com",
-          "tel:+923195048665",
-          "https://hassaanbashir.tech",
-          "https://www.linkedin.com/in/hassaanbashir1/"
-        ],
-        "alumniOf": {
-          "@type": "EducationalOrganization",
-          "name": "The Superior University",
-          "url": "https://superior.edu.pk"
-        },
-        "hasCredential": [
+        "@graph": [
           {
-            "@type": "EducationalOccupationalCredential",
-            "name": "AHPC Certified Imaging Technologist",
-            "credentialCategory": "Professional Certification",
-            "recognizedBy": {
-              "@type": "Organization",
-              "name": "Allied Health Professionals Council (AHPC)"
-            }
+            "@type": "WebSite",
+            "@id": "https://hassaanbashir.tech/#website",
+            "url": "https://hassaanbashir.tech",
+            "name": "Hassaan Bashir Portfolio",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://hassaanbashir.tech/#webpage",
+            "url": "https://hassaanbashir.tech",
+            "name": "Hassaan Bashir | Medical Imaging Technologist",
+            "description": "Hassaan Bashir is an AHPC certified Medical Imaging Technologist in Lahore, specializing in CT, MRI, X-ray, OPG, and CBCT with a focus on safe, accurate diagnostics and patient care.",
+            "isPartOf": { "@id": "https://hassaanbashir.tech/#website" },
+            "about": { "@id": "https://hassaanbashir.tech/#person" },
+            "primaryImageOfPage": { "@id": "https://hassaanbashir.tech/#pic1" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://hassaanbashir.tech/#pic1",
+            "url": "https://hassaanbashir.tech/pic1.webp"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://hassaanbashir.tech/#person",
+            "name": "Hassaan Bashir",
+            "alternateName": "Hassaan Bashir MIT",
+            "jobTitle": "AHPC Certified Medical Imaging Technologist",
+            "description": "AHPC Registered Medical Imaging Technologist specializing in CT, MRI, X-Ray, OPG, and CBCT imaging. Experienced in high-volume hospital settings with strong expertise in diagnostic accuracy, radiation safety, and patient-centered care in Lahore, Pakistan.",
+            "url": "https://hassaanbashir.tech",
+            "image": { "@id": "https://hassaanbashir.tech/#pic1" },
+            "sameAs": [
+              "mailto:hassaanbashir.mit@gmail.com",
+              "tel:+923195048665",
+              "https://hassaanbashir.tech",
+              "https://www.linkedin.com/in/hassaanbashir1/"
+            ],
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "The Superior University",
+              "url": "https://superior.edu.pk"
+            },
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "AHPC Certified Imaging Technologist",
+                "credentialCategory": "Professional Certification",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Allied Health Professionals Council (AHPC)"
+                }
+              }
+            ],
+            "knowsAbout": [
+              "CT Scanning",
+              "MRI Imaging",
+              "X-Ray Imaging",
+              "OPG Imaging",
+              "CBCT Imaging",
+              "Radiation Safety Protocols",
+              "Diagnostic Radiology",
+              "Patient Care in Medical Imaging"
+            ],
+            "hasOccupation": [
+              {
+                "@type": "Occupation",
+                "name": "Imaging Technologist",
+                "description": "Medical imaging technologist providing CT, MRI, X-ray, OPG, and CBCT services with a focus on diagnostic accuracy and patient safety.",
+                "occupationLocation": {
+                  "@type": "City",
+                  "name": "Lahore",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Lahore",
+                    "addressRegion": "Punjab",
+                    "addressCountry": "PK"
+                  }
+                }
+              },
+              {
+                "@type": "Occupation",
+                "name": "Radiologic Technologist",
+                "description": "Radiologic technologist performing diagnostic imaging and ensuring radiation safety and patient care protocols.",
+                "occupationLocation": {
+                  "@type": "City",
+                  "name": "Lahore",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Lahore",
+                    "addressRegion": "Punjab",
+                    "addressCountry": "PK"
+                  }
+                }
+              }
+            ],
+            "affiliation": [
+              { "@type": "Organization", "name": "Pakistan Kidney & Liver Institute" },
+              { "@type": "Organization", "name": "Jinnah MRI & Body Scan" }
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Medical Imaging Services",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CT Scanning" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "MRI Imaging" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "X-Ray Imaging" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "OPG Imaging" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CBCT Imaging" } }
+              ]
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Lahore",
+              "addressRegion": "Punjab",
+              "addressCountry": "PK"
+            },
+            "telephone": "+923195048665",
+            "email": "hassaanbashir.mit@gmail.com",
+            "nationality": "Pakistani",
+            "gender": "Male",
+            "mainEntityOfPage": { "@id": "https://hassaanbashir.tech/#webpage" }
           }
-        ],
-        "knowsAbout": [
-          "CT Scanning",
-          "MRI Imaging",
-          "X-Ray Imaging",
-          "OPG Imaging",
-          "CBCT Imaging",
-          "Radiation Safety Protocols",
-          "Diagnostic Radiology",
-          "Patient Care in Medical Imaging"
-        ],
-  "hasOccupation": [
-    {
-      "@type": "Occupation",
-      "name": "Imaging Technologist",
-      "description": "Medical imaging technologist providing CT, MRI, X-ray, OPG, and CBCT services with a focus on diagnostic accuracy and patient safety.",
-      "occupationLocation": {
-        "@type": "City",
-        "name": "Lahore",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Lahore",
-          "addressRegion": "Punjab",
-          "addressCountry": "PK"
-        }
-      }
-    },
-    {
-      "@type": "Occupation",
-      "name": "Radiologic Technologist",
-      "description": "Radiologic technologist performing diagnostic imaging and ensuring radiation safety and patient care protocols.",
-      "occupationLocation": {
-        "@type": "City",
-        "name": "Lahore",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Lahore",
-          "addressRegion": "Punjab",
-          "addressCountry": "PK"
-        }
-      }
-    }
-  ],
-  "affiliation": [
-    {
-      "@type": "Organization",
-      "name": "Pakistan Kidney & Liver Institute"
-    },
-    {
-      "@type": "Organization",
-      "name": "Jinnah MRI & Body Scan"
-    }
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Medical Imaging Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "CT Scanning"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "MRI Imaging"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "X-Ray Imaging"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "OPG Imaging"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "CBCT Imaging"
-        }
-      }
-    ]
-  },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Lahore",
-          "addressRegion": "Punjab",
-          "addressCountry": "PK"
-        },
-        "telephone": "+923195048665",
-        "email": "hassaanbashir.mit@gmail.com",
-        "nationality": "Pakistani",
-        "gender": "Male",
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://hassaanbashir.tech"
-        }
+        ]
       }
     </script>
     <title>Hassaan Bashir | Medical Imaging Technologist</title>
